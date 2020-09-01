@@ -18,8 +18,14 @@ inputs:
     required: true
     description: 'Where EC2 instance is'
   instance-ids:
-    required: true
+    required: false 
     description: 'AWS EC2 Instance id or ids'
+  targets-key:
+    required: false 
+    description: 'AWS EC2 Instance targets key'
+  targets-value:
+    required: false 
+    description: 'AWS EC2 Instance targets value'
   command:
     required: false
     description: 'Bash command you want to execute'
