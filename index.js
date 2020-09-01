@@ -16,7 +16,6 @@ try {
   const ssm = new AWS.SSM();
   ssm.sendCommand(
     {
-      InstanceIds: inputs.instanceIds,
       DocumentName: inputs.documentName,
       Comment: inputs.comment,
       Parameters: {
