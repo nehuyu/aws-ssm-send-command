@@ -48,14 +48,16 @@ try {
 
 function SanitizeInputs() {
   // AWS
-  const _accessKeyId = core.getInput("aws-access-key-id");
+  const _accessKeyId = core.getInput("aws-access-key-id", {
+    required: true 
+  });
   const _secretAccessKey = core.getInput("aws-secret-access-key", {
     required: true,
   });
   const _region = core.getInput("aws-region", { required: true });
 
   // SSM Send Command
-  const _instanceIds = core.getInput("instance-ids", { required: true });
+  const _instanceIds = core.getInput("instance-ids");
   const _command = core.getInput("command");
   const _workingDirectory = core.getInput("working-directory");
   const _comment = core.getInput("comment");
