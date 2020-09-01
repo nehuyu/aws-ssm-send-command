@@ -22,15 +22,15 @@ try {
       Parameters: {
         workingDirectory: [inputs.workingDirectory],
         commands: [inputs.command],
-        Targets: [
-          {
-            Key: inputs.targetsKey,
-            Values: [
-              inputs.targetsValue,
-            ]
-          },
-        ],
       },
+      Targets: [
+        {
+          Key: inputs.targetsKey,
+          Values: [
+            inputs.targetsValue,
+          ]
+        },
+      ],
     },
     (err, data) => {
       if (err) throw err;
