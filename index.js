@@ -22,6 +22,14 @@ try {
       Parameters: {
         workingDirectory: [inputs.workingDirectory],
         commands: [inputs.command],
+        Targets: [
+          {
+            Key: inputs.targetsKey,
+            Values: [
+              inputs.targetsValue,
+            ]
+          },
+        ],
       },
     },
     (err, data) => {
@@ -40,7 +48,7 @@ try {
 
 function SanitizeInputs() {
   // AWS
-  const _accessKeyId = core.getInput("aws-access-key-id", { required: true });
+  const _accessKeyId = core.getInput("aws-access-key-id");
   const _secretAccessKey = core.getInput("aws-secret-access-key", {
     required: true,
   });
@@ -51,6 +59,9 @@ function SanitizeInputs() {
   const _command = core.getInput("command");
   const _workingDirectory = core.getInput("working-directory");
   const _comment = core.getInput("comment");
+
+  const _targetsKey = core.getInput("targets-key");
+  const _targetsValue = core.getInput("targets-value");
 
   // customized not supported yet, will be updated soon.
   const _documentName = "AWS-RunShellScript";
@@ -66,5 +77,7 @@ function SanitizeInputs() {
     documentName: _documentName,
     workingDirectory: _workingDirectory,
     comment: _comment,
+    targetsKey: _targetsKey,
+    targetsValue: _targetsValue,
   };
 }
